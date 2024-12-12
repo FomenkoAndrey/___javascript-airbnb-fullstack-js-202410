@@ -1,0 +1,43 @@
+{
+  "extends": "airbnb-base",
+  "plugins": ["import"],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "implicit-arrow-linebreak": "off",
+    "array-bracket-spacing": "off",
+    "arrow-parens": "off",
+    "linebreak-style": ["error", "windows"],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "comma-dangle": "off",
+    "no-console": "off",
+    "no-nested-ternary": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-debugger": "warn",
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-param-reassign": ["error", { "props": false }],
+    "func-names": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "no-plusplus": "off",
+    "import/extensions": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-expressions": "off",
+    "no-restricted-syntax": ["off"],
+    "import/prefer-default-export": "off"
+  }
+}
