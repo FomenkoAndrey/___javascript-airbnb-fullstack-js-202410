@@ -1,9 +1,8 @@
-const obj = { a: 1, b: { c: 2 } }
-const deepCopy = JSON.parse(JSON.stringify(obj))
-
-console.log(deepCopy)
-deepCopy.b.c = 3
-console.log(obj.b.c)
-
-// lodash
-// _.cloneDeep(obj)
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable prefer-rest-params */
+/* eslint-disable no-labels */
+/* eslint-disable block-scoped-var */
+/* eslint-disable no-redeclare */
+/* eslint-disable guard-for-in */
+/* eslint-disable vars-on-top */
+/* eslint-disable no-var */
