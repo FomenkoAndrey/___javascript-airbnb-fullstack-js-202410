@@ -1,9 +1,8 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-shadow */
-
 const arr = []
 
-for (let i = 0; i < 10000; i++) arr[i] = 0
+for (let i = 0; i < 100000; i++) arr[i] = 0
 
 function walkForIn(arr) {
   for (const key in arr) arr[key]++
@@ -14,17 +13,13 @@ function walkFor(arr) {
 }
 
 function bench(f) {
-  const date = performance.now()
+  const date = new Date()
   for (let i = 0; i < 10000; i++) f(arr)
-  return performance.now() - date
+  return new Date() - date
 }
-
-console.time('testForIn')
 
 const resForIn = bench(walkForIn)
 const resFor = bench(walkFor)
-
-console.timeEnd('testForIn')
 
 console.log(`Время walkForIn ${resForIn} мс`)
 console.log(`Время walkFor: ${resFor} мс`)
