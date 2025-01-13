@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mutation Observer Test</title>
+</head>
+
+<body>
+  <h1 id="some-id">test</h1>
+  <button id="modify-attributes">Змінити атрибути</button>
+  <button id="add-child">Додати дитину</button>
+  <button id="remove-child">Видалити дитину</button>
+
+  <script>
+    // Функція колбек, яка викликається при кожній мутації
+    const callback = (mutationsList, observer) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          console.log('Додано або видалено дитячі вузли:', mutation);
+        } else if (mutation.type === 'attributes') {
+          console.log('Змінено атрибути:', mutation);
+        }
+      }
+    };
+
+    // Створення екземпляра MutationObserver
+    const observer = new MutationObserver(callback);
+
+    // Вибір цільового елемента для відстеження
+    const targetNode = document.getElementById('some-id');
+
+    // Конфігурація спостерігача: що саме відстежувати
+    const config = {
+      attributes: true,
+      childList: true,
+      subtree: true
+    };
+
+    // Початок відстеження вибраного елемента
+    observer.observe(targetNode, config);
+
+    // Встановлення обробників подій для кнопок
+    document.getElementById('modify-attributes').addEventListener('click', () => {
+      targetNode.setAttribute('data-test', 'value');
+    });
+
+    document.getElementById('add-child').addEventListener('click', () => {
+      const newChild = document.createElement('div');
+      newChild.textContent = 'Новий дитячий елемент';
+      targetNode.appendChild(newChild);
+    });
+
+    document.getElementById('remove-child').addEventListener('click', () => {
+      if (targetNode.firstChild) {
+        targetNode.removeChild(targetNode.firstChild);
+      }
+    });
+
+    // Приклад як зупинити спостереження
+    // observer.disconnect();
+  </script>
+</body>
+
+</html>

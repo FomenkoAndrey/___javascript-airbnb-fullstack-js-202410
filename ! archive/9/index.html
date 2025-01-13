@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid #777;
+      padding: 30px;
+      text-align: center;
+    }
+
+    button {
+      transform: scale(2);
+    }
+
+    .clicked {
+      background-color: rgba(0, 255, 128, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="first">
+    <div id="second">
+      <div id="third">
+        <button id="clickable">Click me!</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var divElements = document.querySelectorAll('div');
+    var button = document.getElementById('clickable');
+    var clickedElement = null;
+
+    var clickHandler = function (e) { // e = event
+      console.log(e);
+      if (clickedElement) {
+        clickedElement.classList.remove('clicked');
+      }
+      clickedElement = e.currentTarget;
+      clickedElement.classList.add('clicked');
+      debugger; // раскомментировать
+    }
+
+    for (var i = 0; i < divElements.length; i++) {
+      divElements[i].addEventListener('click', clickHandler, true);
+    }
+
+    button.addEventListener('click', clickHandler, true);
+    document.body.addEventListener('click', clickHandler, true);
+  </script>
+</body>
+
+</html>
