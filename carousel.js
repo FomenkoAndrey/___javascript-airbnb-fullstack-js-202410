@@ -72,13 +72,10 @@ class Carousel {
   }
 
   _initListeners() {
-    console.log('Carousel.initListeners')
     this.pauseBtn.addEventListener('click', this.pausePlay.bind(this))
     this.prevBtn.addEventListener('click', this.prev.bind(this))
     this.nextBtn.addEventListener('click', this.next.bind(this))
     this.indicatorsContainer.addEventListener('click', this._indicate.bind(this))
-    this.container.addEventListener('mouseenter', this.pause.bind(this))
-    this.container.addEventListener('mouseleave', this.play.bind(this))
     document.addEventListener('keydown', this.pressKey.bind(this))
   }
 
@@ -101,9 +98,7 @@ class Carousel {
   _tick() {
     if (!this.isPlaying) return
     if (this.timerId) return
-    console.log('Carousel.tick')
     this.timerId = setInterval(() => this._gotoNext(), this.TIMER_INTERVAL)
-    console.log(this.timerId)
   }
 
   _indicate(e) {
@@ -116,26 +111,20 @@ class Carousel {
 
   pause() {
     if (!this.isPlaying) return
-    console.log('Carousel.pause')
     this.pauseBtn.innerHTML = this.FA_PLAY
     this.isPlaying = false
     clearInterval(this.timerId)
     this.timerId = null
-    console.log(this.isPlaying)
-    console.log(this.timerId)
   }
 
   play() {
     if (this.isPlaying) return
-    console.log('Carousel.play')
     this.pauseBtn.innerHTML = this.FA_PAUSE
     this.isPlaying = true
     this._tick()
   }
 
   pausePlay() {
-    console.log('Carousel.pausePlay')
-    console.log(this.isPlaying)
     this.isPlaying ? this.pause() : this.play()
   }
 
