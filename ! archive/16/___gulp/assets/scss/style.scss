@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use '_common';
+@use '_header';
+
+body {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  order: 1;
+
+  margin: 0;
+  padding: 0;
+
+  transition: 1s;
+  text-align: center;
+  text-decoration: underline;
+
+  background-color: $background;
+
+  font-size: 24px;
+
+  gap: 10px;
+
+  h1 {
+    color: $color;
+  }
+}

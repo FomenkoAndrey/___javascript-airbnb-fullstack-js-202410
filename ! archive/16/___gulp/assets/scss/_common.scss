@@ -1,0 +1,68 @@
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  order: 1;
+
+  margin: 0;
+  padding: 0;
+
+  transition: 0.5s;
+  transform: rotate(10deg);
+
+  opacity: 1;
+
+  font-family: serif;
+  font-size: 12px;
+
+  @media (min-width: 600px) {
+    text-align: center;
+
+    background-image: url("url");
+
+    font-size: 30px;
+  }
+  @media (max-width: 600px) {
+    text-align: center;
+
+    background-image: url("url");
+
+    font-size: 20px;
+  }
+
+  h1 {
+    @media (max-width: 1900px) and (min-width: 1601px) {
+      text-align: center;
+
+      background-image: url("url");
+
+      font-size: 20px;
+    }
+    @media (max-width: 1200px) and (min-width: 1001px) {
+      text-align: center;
+
+      background-image: url("url");
+
+      font-size: 20px;
+    }
+    @media (max-width: 900px) and (min-width: 601px) {
+      text-align: center;
+
+      background-image: url("url");
+
+      font-size: 20px;
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+
+  color: green;
+
+  font-size: 3rem;
+}
